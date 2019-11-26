@@ -16,7 +16,9 @@ section {
 }
 
 .one {
-  background: #FFCF8F;
+	background-color: #EAEAEA;
+	color: #373737;
+	background-blend-mode: multiply;
 }
 
 .two {
@@ -96,7 +98,7 @@ h1 {
 
 @media (max-width: 480px) {
   body {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.5;
   }
   section {
