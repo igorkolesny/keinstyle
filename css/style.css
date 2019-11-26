@@ -63,6 +63,9 @@ h1 {
 	font-weight: bold;
 	width: 80%;
 	margin: 0 auto;
+	height: 20vw;
+	border: 1px solid;
+	font-size: 1.3vw;
 }
 
 .menu {
