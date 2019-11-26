@@ -53,6 +53,10 @@ h1 {
 
 .one p {
 	text-align: justify;
+	font-size: 18px;
+	font-weight: bold;
+	width: 80%;
+	margin: 0 auto;
 }
 
 .menu {
