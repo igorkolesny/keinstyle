@@ -35,6 +35,7 @@ class Router
         self::$my_account = empty(self::$my_account) ? new MyAccount() : self::$my_account;
         self::$schedule = empty(self::$schedule) ? new Schedules() : self::$schedule;
         if (is_admin()) {
+            add_action('upgrader_process_complete', array(self::$admin, 'upgradeDatabase'), 10, 2);
             register_activation_hook(WLR_PLUGIN_FILE, array(self::$admin, 'pluginActivation'));
             add_action('wpmu_new_blog', array(self::$admin, 'onCreateBlog'), 10, 6);
             add_filter('wpmu_drop_tables', array(self::$admin, 'onDeleteBlog'));
@@ -86,7 +87,6 @@ class Router
             self::$campaigns = empty(self::$campaigns) ? new CampaignPage() : self::$campaigns;
             add_action('wp_ajax_wlr_get_campaigns', array(self::$campaigns, 'getCampaigns'));
             add_action('wp_ajax_wlr_delete_campaign', array(self::$campaigns, 'deleteCampaign'));
-            add_action('wp_ajax_wlr_bulk_delete_campaign', array(self::$campaigns, 'deleteBulkCampaign'));
             add_action('wp_ajax_wlr_toggle_campaign_active', array(self::$campaigns, 'toggleCampaignActive'));
             add_action('wp_ajax_wlr_bulk_action_campaigns', array(self::$campaigns, 'bulkAction'));
             add_action('wp_ajax_wlr_duplicate_campaign', array(self::$campaigns, 'duplicateCampaign'));
